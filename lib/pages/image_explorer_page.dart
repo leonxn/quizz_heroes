@@ -13,11 +13,13 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
 
   void checkAnswer(bool userAnswer, String numberQuestion) {
     if (configBrain.isFinished() == true) {
+      int totalpuntaje = configBrain.puntaje;
       Alert(
           context: context,
-          type: AlertType.error,
+          type: totalpuntaje == 0 ? AlertType.error : AlertType.success,
           title: "QuizApp Heroes",
-          desc: "El cuestionario ha llegado a su fin",
+          desc:
+              "El cuestionario ha llegado a su fin, obtuviste $totalpuntaje puntos.",
           buttons: [
             DialogButton(
                 child: Text("Aceptar"),
@@ -31,9 +33,15 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
     } else {
       if (true == userAnswer) {
         score.add(itemScore(numberQuestion, true));
+        configBrain.updatePuntaje(true);
+        int totalpuntaje = configBrain.puntaje;
+        print(totalpuntaje);
         print("CORRECTO");
       } else {
         score.add(itemScore(numberQuestion, false));
+        configBrain.updatePuntaje(false);
+        int totalpuntaje = configBrain.puntaje;
+        print(totalpuntaje);
         print("INCORRECTO");
       }
       configBrain.nextQuestion();

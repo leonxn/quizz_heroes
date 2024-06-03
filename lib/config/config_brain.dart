@@ -76,7 +76,7 @@ class ConfigBrain {
   ];
 
   int heroIndex = 0;
-
+  int puntaje = 0;
   String getHeroImg() {
     return heroList[heroIndex].imageUrl;
   }
@@ -134,5 +134,12 @@ class ConfigBrain {
 
   void restarQuizz() {
     heroIndex = 0;
+    puntaje = 0;
+  }
+
+  void updatePuntaje(bool isCorrect) {
+    if (isCorrect) {
+      puntaje++;
+    }
   }
 }
