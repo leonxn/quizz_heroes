@@ -66,7 +66,9 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                         child: MaterialButton(
                           onPressed: () {},
                           color: Colors.redAccent,
-                          child: Text("Button 1"),
+                          child: Text(
+                            configBrain.getHeroAnswerText1(),
+                          ),
                         ),
                       ),
                     ),
@@ -79,7 +81,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                         child: MaterialButton(
                           onPressed: () {},
                           color: Colors.blueAccent,
-                          child: Text("Button 2"),
+                          child: Text(configBrain.getHeroAnswerText2()),
                         ),
                       ),
                     ),
@@ -99,7 +101,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                         child: MaterialButton(
                           onPressed: () {},
                           color: Colors.greenAccent,
-                          child: Text("Button 3"),
+                          child: Text(configBrain.getHeroAnswerText3()),
                         ),
                       ),
                     ),
@@ -112,7 +114,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                         child: MaterialButton(
                           onPressed: () {},
                           color: Colors.orangeAccent,
-                          child: Text("Button 4"),
+                          child: Text(configBrain.getHeroAnswerText4()),
                         ),
                       ),
                     ),
