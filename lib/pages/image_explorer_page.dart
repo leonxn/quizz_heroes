@@ -132,12 +132,12 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           onPressed: () {
-                            checkAnswer(configBrain.isHeroAnswerCorrect1(),
+                            checkAnswer(configBrain.isHeroAnswerCorrect(0),
                                 configBrain.getAnswerNumber());
                           },
                           color: Color(0xff564788),
                           child: Text(
-                            configBrain.getHeroAnswerText1(),
+                            configBrain.getHeroAnswerText(0),
                             style: TextStyle(
                               fontSize: 25,
                               color: Colors.white,
@@ -158,12 +158,12 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           onPressed: () {
-                            checkAnswer(configBrain.isHeroAnswerCorrect2(),
+                            checkAnswer(configBrain.isHeroAnswerCorrect(1),
                                 configBrain.getAnswerNumber());
                           },
                           color: Color(0xff6CCDC3),
                           child: Text(
-                            configBrain.getHeroAnswerText2(),
+                            configBrain.getHeroAnswerText(1),
                             style: TextStyle(
                               fontSize: 25,
                               color: Colors.white,
@@ -191,12 +191,12 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           onPressed: () {
-                            checkAnswer(configBrain.isHeroAnswerCorrect3(),
+                            checkAnswer(configBrain.isHeroAnswerCorrect(2),
                                 configBrain.getAnswerNumber());
                           },
                           color: Color(0xffF3C566),
                           child: Text(
-                            configBrain.getHeroAnswerText3(),
+                            configBrain.getHeroAnswerText(2),
                             style: TextStyle(
                               fontSize: 25,
                               color: Colors.white,
@@ -217,12 +217,12 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           onPressed: () {
-                            checkAnswer(configBrain.isHeroAnswerCorrect4(),
+                            checkAnswer(configBrain.isHeroAnswerCorrect(3),
                                 configBrain.getAnswerNumber());
                           },
                           color: Color(0xffF06060),
                           child: Text(
-                            configBrain.getHeroAnswerText4(),
+                            configBrain.getHeroAnswerText(3),
                             style: TextStyle(
                               fontSize: 25,
                               color: Colors.white,

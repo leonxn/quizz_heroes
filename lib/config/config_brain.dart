@@ -82,38 +82,24 @@ class ConfigBrain {
   }
 
   // Respuestas solo Texto
-  String getHeroAnswerText1() {
-    return heroList[heroIndex].answer[0].textAnswer;
-  }
+  String getHeroAnswerText(int index) {
+    return heroList[heroIndex].answer[index].textAnswer;
 
-  String getHeroAnswerText2() {
-    return heroList[heroIndex].answer[1].textAnswer;
-  }
-
-  String getHeroAnswerText3() {
-    return heroList[heroIndex].answer[2].textAnswer;
-  }
-
-  String getHeroAnswerText4() {
-    return heroList[heroIndex].answer[3].textAnswer;
+    //return heroList[heroIndex].answer[0].textAnswer;
+    // return heroList
+    //     .map((hero) {
+    //       hero.answer.map((answer) {
+    //         answer.textAnswer;
+    //       }).toList();
+    //     })
+    //     .toList();
   }
 
   // Respuestas validacion si es correcta
 
-  bool isHeroAnswerCorrect1() {
-    return heroList[heroIndex].answer[0].isCorrect;
-  }
-
-  bool isHeroAnswerCorrect2() {
-    return heroList[heroIndex].answer[1].isCorrect;
-  }
-
-  bool isHeroAnswerCorrect3() {
-    return heroList[heroIndex].answer[2].isCorrect;
-  }
-
-  bool isHeroAnswerCorrect4() {
-    return heroList[heroIndex].answer[3].isCorrect;
+  bool isHeroAnswerCorrect(int index) {
+    return heroList[heroIndex].answer[index].isCorrect;
+    //return heroList[heroIndex].answer[0].isCorrect;
   }
 
   String getAnswerNumber() {
