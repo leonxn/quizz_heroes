@@ -125,4 +125,14 @@ class ConfigBrain {
       heroIndex++;
     }
   }
+
+  bool isFinished() {
+    print(heroIndex);
+    print(heroList.length - 1);
+    return heroIndex > heroList.length - 2 ? true : false;
+  }
+
+  void restarQuizz() {
+    heroIndex = 0;
+  }
 }

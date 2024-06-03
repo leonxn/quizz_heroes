@@ -1,7 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_images_explorer/config/config_brain.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class ImageExplorerPage extends StatefulWidget {
   @override
@@ -12,15 +11,33 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
   ConfigBrain configBrain = ConfigBrain();
   List<Widget> score = [];
 
-  void checkAnwer(bool userAnswer, String numberQuestion) {
-    if (true == userAnswer) {
-      score.add(itemScore(numberQuestion, true));
-      print("Si es correcto");
+  void checkAnswer(bool userAnswer, String numberQuestion) {
+    if (configBrain.isFinished() == true) {
+      Alert(
+          context: context,
+          type: AlertType.error,
+          title: "QuizApp Heroes",
+          desc: "El cuestionario ha llegado a su fin",
+          buttons: [
+            DialogButton(
+                child: Text("Aceptar"),
+                onPressed: () {
+                  configBrain.restarQuizz();
+                  score.clear();
+                  Navigator.pop(context);
+                  setState(() {});
+                }),
+          ]).show();
     } else {
-      score.add(itemScore(numberQuestion, false));
-      print("INCORRECTO");
+      if (true == userAnswer) {
+        score.add(itemScore(numberQuestion, true));
+        print("CORRECTO");
+      } else {
+        score.add(itemScore(numberQuestion, false));
+        print("INCORRECTO");
+      }
+      configBrain.nextQuestion();
     }
-    configBrain.nextQuestion();
     setState(() {});
   }
 
@@ -47,8 +64,16 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("¿Como se llama el superheroe?"),
+        title: Text(
+          "¿Como se llama el superheroe?",
+          style: TextStyle(
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
+            color: Colors.black54,
+          ),
+        ),
         centerTitle: true,
+        backgroundColor: Colors.white,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -96,12 +121,17 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                         height: double.infinity, // Alto máximo
                         child: MaterialButton(
                           onPressed: () {
-                            checkAnwer(configBrain.isHeroAnswerCorrect1(),
+                            checkAnswer(configBrain.isHeroAnswerCorrect1(),
                                 configBrain.getAnswerNumber());
                           },
-                          color: Colors.redAccent,
+                          color: Color(0xff564788),
                           child: Text(
                             configBrain.getHeroAnswerText1(),
+                            style: TextStyle(
+                              fontSize: 25,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ),
@@ -114,11 +144,18 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                         height: double.infinity, // Alto máximo
                         child: MaterialButton(
                           onPressed: () {
-                            checkAnwer(configBrain.isHeroAnswerCorrect2(),
+                            checkAnswer(configBrain.isHeroAnswerCorrect2(),
                                 configBrain.getAnswerNumber());
                           },
-                          color: Colors.blueAccent,
-                          child: Text(configBrain.getHeroAnswerText2()),
+                          color: Color(0xff6CCDC3),
+                          child: Text(
+                            configBrain.getHeroAnswerText2(),
+                            style: TextStyle(
+                              fontSize: 25,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -137,11 +174,18 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                         height: double.infinity, // Alto máximo
                         child: MaterialButton(
                           onPressed: () {
-                            checkAnwer(configBrain.isHeroAnswerCorrect3(),
+                            checkAnswer(configBrain.isHeroAnswerCorrect3(),
                                 configBrain.getAnswerNumber());
                           },
-                          color: Colors.greenAccent,
-                          child: Text(configBrain.getHeroAnswerText3()),
+                          color: Color(0xffF3C566),
+                          child: Text(
+                            configBrain.getHeroAnswerText3(),
+                            style: TextStyle(
+                              fontSize: 25,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -153,11 +197,18 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                         height: double.infinity, // Alto máximo
                         child: MaterialButton(
                           onPressed: () {
-                            checkAnwer(configBrain.isHeroAnswerCorrect4(),
+                            checkAnswer(configBrain.isHeroAnswerCorrect4(),
                                 configBrain.getAnswerNumber());
                           },
-                          color: Colors.orangeAccent,
-                          child: Text(configBrain.getHeroAnswerText4()),
+                          color: Color(0xffF06060),
+                          child: Text(
+                            configBrain.getHeroAnswerText4(),
+                            style: TextStyle(
+                              fontSize: 25,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -165,6 +216,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                 ],
               ),
             ),
+            Divider(),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: score,
