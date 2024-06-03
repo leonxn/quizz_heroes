@@ -35,13 +35,13 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
         score.add(itemScore(numberQuestion, true));
         configBrain.updatePuntaje(true);
         int totalpuntaje = configBrain.puntaje;
-        print(totalpuntaje);
+        print("total puntaje=$totalpuntaje");
         print("CORRECTO");
       } else {
         score.add(itemScore(numberQuestion, false));
         configBrain.updatePuntaje(false);
         int totalpuntaje = configBrain.puntaje;
-        print(totalpuntaje);
+        print("total puntaje=$totalpuntaje");
         print("INCORRECTO");
       }
       configBrain.nextQuestion();
@@ -128,6 +128,9 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                       child: Container(
                         height: double.infinity, // Alto máximo
                         child: MaterialButton(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
                           onPressed: () {
                             checkAnswer(configBrain.isHeroAnswerCorrect1(),
                                 configBrain.getAnswerNumber());
@@ -151,6 +154,9 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                       child: Container(
                         height: double.infinity, // Alto máximo
                         child: MaterialButton(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
                           onPressed: () {
                             checkAnswer(configBrain.isHeroAnswerCorrect2(),
                                 configBrain.getAnswerNumber());
@@ -181,6 +187,9 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                       child: Container(
                         height: double.infinity, // Alto máximo
                         child: MaterialButton(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
                           onPressed: () {
                             checkAnswer(configBrain.isHeroAnswerCorrect3(),
                                 configBrain.getAnswerNumber());
@@ -204,6 +213,9 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                       child: Container(
                         height: double.infinity, // Alto máximo
                         child: MaterialButton(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
                           onPressed: () {
                             checkAnswer(configBrain.isHeroAnswerCorrect4(),
                                 configBrain.getAnswerNumber());
