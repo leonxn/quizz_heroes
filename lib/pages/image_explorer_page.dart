@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_images_explorer/config/config_brain.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:flutter_images_explorer/constans/constans.dart';
 
 class ImageExplorerPage extends StatefulWidget {
   @override
@@ -22,7 +23,15 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
               "El cuestionario ha llegado a su fin, obtuviste $totalpuntaje puntos.",
           buttons: [
             DialogButton(
-                child: Text("Aceptar"),
+                color: Color(0xff564788),
+                child: Text(
+                  "Aceptar",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 onPressed: () {
                   configBrain.restarQuizz();
                   score.clear();
@@ -56,7 +65,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
           "$numberQuestion: ",
           style: TextStyle(
             color: Colors.black,
-            fontSize: 18,
+            fontSize: 20,
           ),
         ),
         Icon(
@@ -138,11 +147,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                           color: Color(0xff564788),
                           child: Text(
                             configBrain.getHeroAnswerText(0),
-                            style: TextStyle(
-                              fontSize: 25,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: textoButton,
                           ),
                         ),
                       ),
@@ -164,11 +169,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                           color: Color(0xff6CCDC3),
                           child: Text(
                             configBrain.getHeroAnswerText(1),
-                            style: TextStyle(
-                              fontSize: 25,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: textoButton,
                           ),
                         ),
                       ),
@@ -197,11 +198,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                           color: Color(0xffF3C566),
                           child: Text(
                             configBrain.getHeroAnswerText(2),
-                            style: TextStyle(
-                              fontSize: 25,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: textoButton,
                           ),
                         ),
                       ),
@@ -223,11 +220,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                           color: Color(0xffF06060),
                           child: Text(
                             configBrain.getHeroAnswerText(3),
-                            style: TextStyle(
-                              fontSize: 25,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: textoButton,
                           ),
                         ),
                       ),
