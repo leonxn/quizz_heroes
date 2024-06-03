@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import '/models/hero_model.dart';
+import 'package:flutter_images_explorer/config/config_brain.dart';
 
 class ImageExplorerPage extends StatefulWidget {
   @override
@@ -10,47 +10,19 @@ class ImageExplorerPage extends StatefulWidget {
 
 class _ImageExplorerPageState extends State<ImageExplorerPage> {
   int indexHeroList = Random().nextInt(6);
-  List<HeroModel> heroList = [
-    HeroModel(
-      name: "Capitán América",
-      imageUrl: "assets/image/capitan.png",
-    ),
-    HeroModel(
-      name: "Iron Man",
-      imageUrl: "assets/image/ironman.png",
-    ),
-    HeroModel(
-      name: "Hulk",
-      imageUrl: "assets/image/hulk.png",
-    ),
-    HeroModel(
-      name: "Spiderman",
-      imageUrl: "assets/image/spiderman.png",
-    ),
-    HeroModel(
-      name: "Mujer maravilla",
-      imageUrl: "assets/image/mujer_maravilla.png",
-    ),
-    HeroModel(
-      name: "Antman",
-      imageUrl: "assets/image/antman.png",
-    ),
-    HeroModel(
-      name: "Pantera Negra",
-      imageUrl: "assets/image/pantera.png",
-    )
-  ];
+
   String heroName = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Image Explorer"),
+        title: Text("¿Como se llama el superheroe?"),
+        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Container(
               width: MediaQuery.of(context).size.width,
@@ -72,34 +44,104 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
               // ),
             ),
             Divider(),
-            Text(
-              heroName,
-              style: TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
+            // Text(
+            //   heroName,
+            //   style: TextStyle(
+            //     fontSize: 25,
+            //     fontWeight: FontWeight.bold,
+            //   ),
+            // ),
+            // Divider(),
+            Expanded(
+              flex: 1,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: double.infinity, // Alto máximo
+                        child: MaterialButton(
+                          onPressed: () {},
+                          color: Colors.redAccent,
+                          child: Text("Button 1"),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: double.infinity, // Alto máximo
+                        child: MaterialButton(
+                          onPressed: () {},
+                          color: Colors.blueAccent,
+                          child: Text("Button 2"),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-            Divider(),
+            Expanded(
+              flex: 1,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: double.infinity, // Alto máximo
+                        child: MaterialButton(
+                          onPressed: () {},
+                          color: Colors.greenAccent,
+                          child: Text("Button 3"),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: double.infinity, // Alto máximo
+                        child: MaterialButton(
+                          onPressed: () {},
+                          color: Colors.orangeAccent,
+                          child: Text("Button 4"),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    heroName = heroList[indexHeroList].name;
-                    setState(() {});
-                  },
-                  child: Text("Mostrar superheroe"),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    indexHeroList = Random().nextInt(6);
-                    heroName = "";
-                    setState(() {});
-                  },
-                  child: Text("Siguiente"),
-                ),
-              ],
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [Icon(Icons.check)],
             )
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //   children: [
+            //     ElevatedButton(
+            //       onPressed: () {
+            //         heroName = heroList[indexHeroList].name;
+            //         setState(() {});
+            //       },
+            //       child: Text("Mostrar superheroe"),
+            //     ),
+            //     ElevatedButton(
+            //       onPressed: () {
+            //         indexHeroList = Random().nextInt(6);
+            //         heroName = "";
+            //         setState(() {});
+            //       },
+            //       child: Text("Siguiente"),
+            //     ),
+            //   ],
+            // )
           ],
         ),
       ),
