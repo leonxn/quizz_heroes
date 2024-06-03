@@ -10,8 +10,39 @@ class ImageExplorerPage extends StatefulWidget {
 
 class _ImageExplorerPageState extends State<ImageExplorerPage> {
   ConfigBrain configBrain = ConfigBrain();
+  List<Widget> score = [];
 
-  String heroName = "";
+  void checkAnwer(bool userAnswer, String numberQuestion) {
+    if (true == userAnswer) {
+      score.add(itemScore(numberQuestion, true));
+      print("Si es correcto");
+    } else {
+      score.add(itemScore(numberQuestion, false));
+      print("INCORRECTO");
+    }
+    configBrain.nextQuestion();
+    setState(() {});
+  }
+
+  Widget itemScore(String numberQuestion, bool isCorrect) {
+    return Row(
+      children: [
+        Text(
+          "$numberQuestion: ",
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 18,
+          ),
+        ),
+        Icon(
+          isCorrect ? Icons.check : Icons.close,
+          color: isCorrect ? Colors.greenAccent : Colors.redAccent,
+        ),
+      ],
+    );
+  }
+
+  //String heroName = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,7 +95,10 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                       child: Container(
                         height: double.infinity, // Alto máximo
                         child: MaterialButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            checkAnwer(configBrain.isHeroAnswerCorrect1(),
+                                configBrain.getAnswerNumber());
+                          },
                           color: Colors.redAccent,
                           child: Text(
                             configBrain.getHeroAnswerText1(),
@@ -79,7 +113,10 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                       child: Container(
                         height: double.infinity, // Alto máximo
                         child: MaterialButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            checkAnwer(configBrain.isHeroAnswerCorrect2(),
+                                configBrain.getAnswerNumber());
+                          },
                           color: Colors.blueAccent,
                           child: Text(configBrain.getHeroAnswerText2()),
                         ),
@@ -99,7 +136,10 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                       child: Container(
                         height: double.infinity, // Alto máximo
                         child: MaterialButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            checkAnwer(configBrain.isHeroAnswerCorrect3(),
+                                configBrain.getAnswerNumber());
+                          },
                           color: Colors.greenAccent,
                           child: Text(configBrain.getHeroAnswerText3()),
                         ),
@@ -112,7 +152,10 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                       child: Container(
                         height: double.infinity, // Alto máximo
                         child: MaterialButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            checkAnwer(configBrain.isHeroAnswerCorrect4(),
+                                configBrain.getAnswerNumber());
+                          },
                           color: Colors.orangeAccent,
                           child: Text(configBrain.getHeroAnswerText4()),
                         ),
@@ -124,7 +167,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [Icon(Icons.check)],
+              children: score,
             )
             // Row(
             //   mainAxisAlignment: MainAxisAlignment.spaceAround,
