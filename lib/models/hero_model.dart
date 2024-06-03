@@ -1,7 +1,9 @@
+import 'package:flutter_images_explorer/models/answer_model.dart';
+
 class HeroModel {
   String name;
   String imageUrl;
-  bool answer;
+  List<AnswerModel> answer;
 
   //COSTRUCTOR POR DEFECTO
   // HeroModel(this.name, this.imageUrl);

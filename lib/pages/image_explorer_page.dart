@@ -9,7 +9,7 @@ class ImageExplorerPage extends StatefulWidget {
 }
 
 class _ImageExplorerPageState extends State<ImageExplorerPage> {
-  int indexHeroList = Random().nextInt(6);
+  ConfigBrain configBrain = ConfigBrain();
 
   String heroName = "";
   @override
@@ -31,7 +31,9 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.red,
                 image: DecorationImage(
-                  image: AssetImage(heroList[indexHeroList].imageUrl),
+                  image: AssetImage(
+                    configBrain.getHeroImg(),
+                  ),
                   // NetworkImage(
                   //   heroList[indexHeroList].imageUrl,
                   // ),
