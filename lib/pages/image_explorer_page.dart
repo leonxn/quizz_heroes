@@ -76,6 +76,21 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
     );
   }
 
+  Color getColorButtonAnswer(int index) {
+    switch (index) {
+      case 0:
+        return Color(0xff564788);
+      case 1:
+        return Color(0xff6CCDC3);
+      case 2:
+        return Color(0xffF3C566);
+      case 3:
+        return Color(0xffF06060);
+      default:
+        return Colors.grey;
+    }
+  }
+
   //String heroName = "";
   @override
   Widget build(BuildContext context) {
@@ -135,7 +150,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
-                        height: double.infinity, // Alto máximo
+                        height: double.infinity,
                         child: MaterialButton(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
@@ -144,7 +159,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                             checkAnswer(configBrain.isHeroAnswerCorrect(0),
                                 configBrain.getAnswerNumber());
                           },
-                          color: Color(0xff564788),
+                          color: getColorButtonAnswer(0),
                           child: Text(
                             configBrain.getHeroAnswerText(0),
                             style: textoButton,
@@ -157,7 +172,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
-                        height: double.infinity, // Alto máximo
+                        height: double.infinity,
                         child: MaterialButton(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
@@ -166,7 +181,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                             checkAnswer(configBrain.isHeroAnswerCorrect(1),
                                 configBrain.getAnswerNumber());
                           },
-                          color: Color(0xff6CCDC3),
+                          color: getColorButtonAnswer(1),
                           child: Text(
                             configBrain.getHeroAnswerText(1),
                             style: textoButton,
@@ -186,7 +201,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
-                        height: double.infinity, // Alto máximo
+                        height: double.infinity,
                         child: MaterialButton(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
@@ -195,7 +210,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                             checkAnswer(configBrain.isHeroAnswerCorrect(2),
                                 configBrain.getAnswerNumber());
                           },
-                          color: Color(0xffF3C566),
+                          color: getColorButtonAnswer(2),
                           child: Text(
                             configBrain.getHeroAnswerText(2),
                             style: textoButton,
@@ -208,7 +223,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
-                        height: double.infinity, // Alto máximo
+                        height: double.infinity,
                         child: MaterialButton(
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
@@ -217,7 +232,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                             checkAnswer(configBrain.isHeroAnswerCorrect(3),
                                 configBrain.getAnswerNumber());
                           },
-                          color: Color(0xffF06060),
+                          color: getColorButtonAnswer(3),
                           child: Text(
                             configBrain.getHeroAnswerText(3),
                             style: textoButton,
