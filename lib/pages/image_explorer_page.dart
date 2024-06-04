@@ -40,7 +40,6 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
           ),
         ),
       );
-
       print(buttonAnswer);
     }
   }
