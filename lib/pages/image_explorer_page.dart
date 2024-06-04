@@ -14,7 +14,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
   List<Widget> score = [];
   List<Widget> buttonAnswer = [];
 
-  generateButtonAnswer() {
+  void generateButtonAnswer() {
     for (int i = 0; i < 4; i++) {
       buttonAnswer.add(
         Expanded(
@@ -40,7 +40,8 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
           ),
         ),
       );
-      print(buttonAnswer);
+
+      print(buttonAnswer[0]);
     }
   }
 
@@ -168,7 +169,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    generateButtonAnswer();
+    //generateButtonAnswer();
   }
 
   //String heroName = "";
@@ -227,6 +228,8 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
               flex: 1,
               child: Row(
                 children: [
+                  buttonAnswer[0],
+                  buttonAnswer[1],
                   // Expanded(
                   //   child: Padding(
                   //     padding: const EdgeInsets.all(8.0),
@@ -278,6 +281,8 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
               flex: 1,
               child: Row(
                 children: [
+                  buttonAnswer[2],
+                  buttonAnswer[3],
                   // Expanded(
                   //   child: Padding(
                   //     padding: const EdgeInsets.all(8.0),
