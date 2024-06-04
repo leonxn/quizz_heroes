@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_images_explorer/models/hero_model.dart';
 import 'package:flutter_images_explorer/models/answer_model.dart';
 
@@ -109,6 +110,21 @@ class ConfigBrain {
   void nextQuestion() {
     if (heroIndex < heroList.length - 1) {
       heroIndex++;
+    }
+  }
+
+  Color getColorButtonAnswer(int index) {
+    switch (index) {
+      case 0:
+        return Color(0xff564788);
+      case 1:
+        return Color(0xff6CCDC3);
+      case 2:
+        return Color(0xffF3C566);
+      case 3:
+        return Color(0xffF06060);
+      default:
+        return Colors.grey;
     }
   }
 

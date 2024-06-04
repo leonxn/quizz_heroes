@@ -14,7 +14,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
   List<Widget> score = [];
   List<Widget> buttonAnswer = [];
 
-  generateButtonAnswer() {
+  void generateButtonAnswer() {
     for (int i = 0; i < 4; i++) {
       buttonAnswer.add(
         Expanded(
@@ -31,7 +31,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                   checkAnswer(configBrain.isHeroAnswerCorrect(i),
                       configBrain.getAnswerNumber());
                 },
-                color: getColorButtonAnswer(i),
+                color: configBrain.getColorButtonAnswer(i),
                 child: Text(
                   configBrain.getHeroAnswerText(i),
                   style: textoButton,
@@ -41,9 +41,9 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
           ),
         ),
       );
-
-      print(buttonAnswer[0]);
     }
+    print(buttonAnswer[0]);
+    setState(() {});
   }
 
   void checkAnswer(bool userAnswer, String numberQuestion) {
@@ -110,6 +110,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
         onConfirmBtnTap: () {
           configBrain.restarQuizz();
           score.clear();
+          //buttonAnswer.clear();
           Navigator.pop(context);
           setState(() {});
         },
@@ -149,21 +150,6 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
         ),
       ],
     );
-  }
-
-  Color getColorButtonAnswer(int index) {
-    switch (index) {
-      case 0:
-        return Color(0xff564788);
-      case 1:
-        return Color(0xff6CCDC3);
-      case 2:
-        return Color(0xffF3C566);
-      case 3:
-        return Color(0xffF06060);
-      default:
-        return Colors.grey;
-    }
   }
 
   @override
@@ -244,7 +230,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                   //           checkAnswer(configBrain.isHeroAnswerCorrect(0),
                   //               configBrain.getAnswerNumber());
                   //         },
-                  //         color: getColorButtonAnswer(0),
+                  //         color: configBrain.getColorButtonAnswer(0),
                   //         child: Text(
                   //           configBrain.getHeroAnswerText(0),
                   //           style: textoButton,
@@ -266,7 +252,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                   //           checkAnswer(configBrain.isHeroAnswerCorrect(1),
                   //               configBrain.getAnswerNumber());
                   //         },
-                  //         color: getColorButtonAnswer(1),
+                  //         color: configBrain.getColorButtonAnswer(1),
                   //         child: Text(
                   //           configBrain.getHeroAnswerText(1),
                   //           style: textoButton,
@@ -297,7 +283,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                   //           checkAnswer(configBrain.isHeroAnswerCorrect(2),
                   //               configBrain.getAnswerNumber());
                   //         },
-                  //         color: getColorButtonAnswer(2),
+                  //         color: configBrain.getColorButtonAnswer(2),
                   //         child: Text(
                   //           configBrain.getHeroAnswerText(2),
                   //           style: textoButton,
@@ -319,7 +305,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                   //           checkAnswer(configBrain.isHeroAnswerCorrect(3),
                   //               configBrain.getAnswerNumber());
                   //         },
-                  //         color: getColorButtonAnswer(3),
+                  //         color: configBrain.getColorButtonAnswer(3),
                   //         child: Text(
                   //           configBrain.getHeroAnswerText(3),
                   //           style: textoButton,
