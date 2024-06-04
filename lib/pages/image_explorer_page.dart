@@ -45,8 +45,31 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
         context: context,
         type: totalpuntaje == 0 ? QuickAlertType.error : QuickAlertType.success,
         title: 'QuizApp Heroes',
-        text:
-            'El cuestionario ha llegado a su fin, obtuviste $totalpuntaje puntos.',
+        // text:
+        //     'El cuestionario ha llegado a su fin, obtuviste $totalpuntaje puntos.',
+        widget: RichText(
+          textAlign: TextAlign.center,
+          text: TextSpan(
+            children: [
+              TextSpan(
+                text: 'El cuestionario ha llegado a su fin,',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.normal,
+                  color: Colors.black,
+                ),
+              ),
+              TextSpan(
+                text: 'obtuviste $totalpuntaje puntos.',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xffF06060),
+                ),
+              ),
+            ],
+          ),
+        ),
         backgroundColor: Colors.white,
         titleColor: Colors.black,
         textColor: Colors.black,
@@ -152,6 +175,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
               //   fit: BoxFit.cover,
               // ),
             ),
+
             Divider(),
             // Text(
             //   heroName,
