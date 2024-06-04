@@ -13,6 +13,38 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
   ConfigBrain configBrain = ConfigBrain();
   List<Widget> score = [];
 
+  generateButtonAnswer() {
+    List<Widget> buttonAnswer = [];
+    for (int i = 0; i < 4; i++) {
+      buttonAnswer.add(
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              height: double.infinity,
+              child: MaterialButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                onPressed: () {
+                  checkAnswer(configBrain.isHeroAnswerCorrect(i),
+                      configBrain.getAnswerNumber());
+                },
+                color: getColorButtonAnswer(i),
+                child: Text(
+                  configBrain.getHeroAnswerText(i),
+                  style: textoButton,
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
+
+      print(buttonAnswer);
+    }
+  }
+
   void checkAnswer(bool userAnswer, String numberQuestion) {
     if (configBrain.isFinished() == true) {
       int totalpuntaje = configBrain.puntaje;
@@ -133,6 +165,13 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
     }
   }
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    generateButtonAnswer();
+  }
+
   //String heroName = "";
   @override
   Widget build(BuildContext context) {
@@ -189,50 +228,50 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
               flex: 1,
               child: Row(
                 children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: double.infinity,
-                        child: MaterialButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          onPressed: () {
-                            checkAnswer(configBrain.isHeroAnswerCorrect(0),
-                                configBrain.getAnswerNumber());
-                          },
-                          color: getColorButtonAnswer(0),
-                          child: Text(
-                            configBrain.getHeroAnswerText(0),
-                            style: textoButton,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: double.infinity,
-                        child: MaterialButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          onPressed: () {
-                            checkAnswer(configBrain.isHeroAnswerCorrect(1),
-                                configBrain.getAnswerNumber());
-                          },
-                          color: getColorButtonAnswer(1),
-                          child: Text(
-                            configBrain.getHeroAnswerText(1),
-                            style: textoButton,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  // Expanded(
+                  //   child: Padding(
+                  //     padding: const EdgeInsets.all(8.0),
+                  //     child: Container(
+                  //       height: double.infinity,
+                  //       child: MaterialButton(
+                  //         shape: RoundedRectangleBorder(
+                  //           borderRadius: BorderRadius.circular(10.0),
+                  //         ),
+                  //         onPressed: () {
+                  //           checkAnswer(configBrain.isHeroAnswerCorrect(0),
+                  //               configBrain.getAnswerNumber());
+                  //         },
+                  //         color: getColorButtonAnswer(0),
+                  //         child: Text(
+                  //           configBrain.getHeroAnswerText(0),
+                  //           style: textoButton,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
+                  // Expanded(
+                  //   child: Padding(
+                  //     padding: const EdgeInsets.all(8.0),
+                  //     child: Container(
+                  //       height: double.infinity,
+                  //       child: MaterialButton(
+                  //         shape: RoundedRectangleBorder(
+                  //           borderRadius: BorderRadius.circular(10.0),
+                  //         ),
+                  //         onPressed: () {
+                  //           checkAnswer(configBrain.isHeroAnswerCorrect(1),
+                  //               configBrain.getAnswerNumber());
+                  //         },
+                  //         color: getColorButtonAnswer(1),
+                  //         child: Text(
+                  //           configBrain.getHeroAnswerText(1),
+                  //           style: textoButton,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
@@ -240,50 +279,50 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
               flex: 1,
               child: Row(
                 children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: double.infinity,
-                        child: MaterialButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          onPressed: () {
-                            checkAnswer(configBrain.isHeroAnswerCorrect(2),
-                                configBrain.getAnswerNumber());
-                          },
-                          color: getColorButtonAnswer(2),
-                          child: Text(
-                            configBrain.getHeroAnswerText(2),
-                            style: textoButton,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: double.infinity,
-                        child: MaterialButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          onPressed: () {
-                            checkAnswer(configBrain.isHeroAnswerCorrect(3),
-                                configBrain.getAnswerNumber());
-                          },
-                          color: getColorButtonAnswer(3),
-                          child: Text(
-                            configBrain.getHeroAnswerText(3),
-                            style: textoButton,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  // Expanded(
+                  //   child: Padding(
+                  //     padding: const EdgeInsets.all(8.0),
+                  //     child: Container(
+                  //       height: double.infinity,
+                  //       child: MaterialButton(
+                  //         shape: RoundedRectangleBorder(
+                  //           borderRadius: BorderRadius.circular(10.0),
+                  //         ),
+                  //         onPressed: () {
+                  //           checkAnswer(configBrain.isHeroAnswerCorrect(2),
+                  //               configBrain.getAnswerNumber());
+                  //         },
+                  //         color: getColorButtonAnswer(2),
+                  //         child: Text(
+                  //           configBrain.getHeroAnswerText(2),
+                  //           style: textoButton,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
+                  // Expanded(
+                  //   child: Padding(
+                  //     padding: const EdgeInsets.all(8.0),
+                  //     child: Container(
+                  //       height: double.infinity,
+                  //       child: MaterialButton(
+                  //         shape: RoundedRectangleBorder(
+                  //           borderRadius: BorderRadius.circular(10.0),
+                  //         ),
+                  //         onPressed: () {
+                  //           checkAnswer(configBrain.isHeroAnswerCorrect(3),
+                  //               configBrain.getAnswerNumber());
+                  //         },
+                  //         color: getColorButtonAnswer(3),
+                  //         child: Text(
+                  //           configBrain.getHeroAnswerText(3),
+                  //           style: textoButton,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
