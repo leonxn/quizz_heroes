@@ -30,8 +30,8 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                   print(configBrain.getHeroAnswerText(i));
                   checkAnswer(configBrain.isHeroAnswerCorrect(i),
                       configBrain.getAnswerNumber());
-                  buttonAnswer.clear();
-                  generateButtonAnswer();
+                  // buttonAnswer.clear();
+                  // generateButtonAnswer();
                 },
                 color: configBrain.getColorButtonAnswer(i),
                 child: Text(
@@ -131,6 +131,8 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
         print("INCORRECTO");
       }
       configBrain.nextQuestion();
+      buttonAnswer.clear();
+      generateButtonAnswer();
     }
     setState(() {});
   }
