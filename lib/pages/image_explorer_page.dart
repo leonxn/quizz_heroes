@@ -14,7 +14,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
   List<Widget> score = [];
   List<Widget> buttonAnswer = [];
 
-  void generateButtonAnswer() {
+  generateButtonAnswer() {
     for (int i = 0; i < 4; i++) {
       buttonAnswer.add(
         Expanded(
@@ -27,6 +27,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                   borderRadius: BorderRadius.circular(10.0),
                 ),
                 onPressed: () {
+                  print(configBrain.getHeroAnswerText(i));
                   checkAnswer(configBrain.isHeroAnswerCorrect(i),
                       configBrain.getAnswerNumber());
                 },
@@ -169,7 +170,7 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    //generateButtonAnswer();
+    generateButtonAnswer();
   }
 
   //String heroName = "";
