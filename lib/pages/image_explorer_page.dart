@@ -12,9 +12,9 @@ class ImageExplorerPage extends StatefulWidget {
 class _ImageExplorerPageState extends State<ImageExplorerPage> {
   ConfigBrain configBrain = ConfigBrain();
   List<Widget> score = [];
+  List<Widget> buttonAnswer = [];
 
   generateButtonAnswer() {
-    List<Widget> buttonAnswer = [];
     for (int i = 0; i < 4; i++) {
       buttonAnswer.add(
         Expanded(
