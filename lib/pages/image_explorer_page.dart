@@ -30,6 +30,8 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
                   print(configBrain.getHeroAnswerText(i));
                   checkAnswer(configBrain.isHeroAnswerCorrect(i),
                       configBrain.getAnswerNumber());
+                  buttonAnswer.clear();
+                  generateButtonAnswer();
                 },
                 color: configBrain.getColorButtonAnswer(i),
                 child: Text(
@@ -43,7 +45,6 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
       );
     }
     print(buttonAnswer[0]);
-    setState(() {});
   }
 
   void checkAnswer(bool userAnswer, String numberQuestion) {
