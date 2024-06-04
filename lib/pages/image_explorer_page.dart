@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_images_explorer/config/config_brain.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
+// import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:flutter_images_explorer/constans/constans.dart';
+import 'package:quickalert/quickalert.dart';
 
 class ImageExplorerPage extends StatefulWidget {
   @override
@@ -15,30 +16,48 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
   void checkAnswer(bool userAnswer, String numberQuestion) {
     if (configBrain.isFinished() == true) {
       int totalpuntaje = configBrain.puntaje;
-      Alert(
-          context: context,
-          type: totalpuntaje == 0 ? AlertType.error : AlertType.success,
-          title: "QuizApp Heroes",
-          desc:
-              "El cuestionario ha llegado a su fin, obtuviste $totalpuntaje puntos.",
-          buttons: [
-            DialogButton(
-                color: Color(0xff564788),
-                child: Text(
-                  "Aceptar",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                onPressed: () {
-                  configBrain.restarQuizz();
-                  score.clear();
-                  Navigator.pop(context);
-                  setState(() {});
-                }),
-          ]).show();
+      // Alert(
+      //     context: context,
+      //     type: totalpuntaje == 0 ? AlertType.error : AlertType.success,
+      //     title: "QuizApp Heroes",
+      //     desc:
+      //         "El cuestionario ha llegado a su fin, obtuviste $totalpuntaje puntos.",
+      //     buttons: [
+      //       DialogButton(
+      //           color: Color(0xff564788),
+      //           child: Text(
+      //             "Aceptar",
+      //             style: TextStyle(
+      //               color: Colors.white,
+      //               fontSize: 18,
+      //               fontWeight: FontWeight.bold,
+      //             ),
+      //           ),
+      //           onPressed: () {
+      //             configBrain.restarQuizz();
+      //             score.clear();
+      //             Navigator.pop(context);
+      //             setState(() {});
+      //           }),
+      //     ]).show();
+
+      QuickAlert.show(
+        context: context,
+        type: totalpuntaje == 0 ? QuickAlertType.error : QuickAlertType.success,
+        title: 'QuizApp Heroes',
+        text:
+            'El cuestionario ha llegado a su fin, obtuviste $totalpuntaje puntos.',
+        backgroundColor: Colors.white,
+        titleColor: Colors.black,
+        textColor: Colors.black,
+        confirmBtnText: 'Aceptar',
+        onConfirmBtnTap: () {
+          configBrain.restarQuizz();
+          score.clear();
+          Navigator.pop(context);
+          setState(() {});
+        },
+      );
     } else {
       if (true == userAnswer) {
         score.add(itemScore(numberQuestion, true));
