@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_images_explorer/config/config_brain.dart';
 // import 'package:rflutter_alert/rflutter_alert.dart';
-import 'package:flutter_images_explorer/constans/constans.dart';
 import 'package:quickalert/quickalert.dart';
 import 'package:flutter_images_explorer/widgets/button_answer_widget.dart';
 
