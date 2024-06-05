@@ -3,6 +3,7 @@ import 'package:flutter_images_explorer/config/config_brain.dart';
 // import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:flutter_images_explorer/constans/constans.dart';
 import 'package:quickalert/quickalert.dart';
+import 'package:flutter_images_explorer/widgets/button_answer_widget.dart';
 
 class ImageExplorerPage extends StatefulWidget {
   @override
@@ -17,32 +18,42 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
   void generateButtonAnswer() {
     for (int i = 0; i < 4; i++) {
       buttonAnswer.add(
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              height: double.infinity,
-              child: MaterialButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                onPressed: () {
-                  print(configBrain.getHeroAnswerText(i));
-                  checkAnswer(configBrain.isHeroAnswerCorrect(i),
-                      configBrain.getAnswerNumber());
-                  // buttonAnswer.clear();
-                  // generateButtonAnswer();
-                },
-                color: configBrain.getColorButtonAnswer(i),
-                child: Text(
-                  configBrain.getHeroAnswerText(i),
-                  style: textoButton,
-                ),
-              ),
-            ),
-          ),
+        ButtonAnswerWidget(
+          colorAnswer: configBrain.getColorButtonAnswer(i),
+          nameAnswer: configBrain.getHeroAnswerText(i),
+          onPressed: () {
+            checkAnswer(configBrain.isHeroAnswerCorrect(i),
+                configBrain.getAnswerNumber());
+          },
         ),
       );
+      // buttonAnswer.add(
+      //   Expanded(
+      //     child: Padding(
+      //       padding: const EdgeInsets.all(8.0),
+      //       child: Container(
+      //         height: double.infinity,
+      //         child: MaterialButton(
+      //           shape: RoundedRectangleBorder(
+      //             borderRadius: BorderRadius.circular(10.0),
+      //           ),
+      //           onPressed: () {
+      //             print(configBrain.getHeroAnswerText(i));
+      //             checkAnswer(configBrain.isHeroAnswerCorrect(i),
+      //                 configBrain.getAnswerNumber());
+      //             // buttonAnswer.clear();
+      //             // generateButtonAnswer();
+      //           },
+      //           color: configBrain.getColorButtonAnswer(i),
+      //           child: Text(
+      //             configBrain.getHeroAnswerText(i),
+      //             style: textoButton,
+      //           ),
+      //         ),
+      //       ),
+      //     ),
+      //   ),
+      // );
     }
     print(buttonAnswer[0]);
   }
@@ -111,6 +122,8 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
         onConfirmBtnTap: () {
           configBrain.restarQuizz();
           score.clear();
+          buttonAnswer.clear();
+          generateButtonAnswer();
           //buttonAnswer.clear();
           Navigator.pop(context);
           setState(() {});
