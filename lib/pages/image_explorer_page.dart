@@ -3,6 +3,7 @@ import 'package:flutter_images_explorer/config/config_brain.dart';
 // import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:quickalert/quickalert.dart';
 import 'package:flutter_images_explorer/widgets/button_answer_widget.dart';
+import 'package:flutter_images_explorer/constans/constans.dart';
 
 class ImageExplorerPage extends StatefulWidget {
   @override
@@ -97,19 +98,11 @@ class _ImageExplorerPageState extends State<ImageExplorerPage> {
             children: [
               TextSpan(
                 text: 'El cuestionario ha llegado a su fin,',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.normal,
-                  color: Colors.black,
-                ),
+                style: textoSpamPrimary,
               ),
               TextSpan(
                 text: 'obtuviste $totalpuntaje puntos.',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xffF06060),
-                ),
+                style: textoSpamSecondary,
               ),
             ],
           ),
